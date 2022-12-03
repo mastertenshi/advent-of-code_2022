@@ -3,26 +3,31 @@ A Y
 B Z
 C Y
 B Y
-A Y
+A X
 A Y
 """
 
-def getVal(c):
+
+def get_val(c):
     return (ord(c) - 65) % 23
 
-def isTie(me, enemy):
+
+def is_tie(me: int, enemy: int):
     return me == enemy
 
-def isWin(me, enemy):
-    return (me + 1) % 3 != enemy
+
+def is_win(me: int, enemy: int):
+    return not is_tie(me, enemy) and \
+        (me + 1) % 3 != enemy
+
 
 points = 0
 for line in text.strip().split("\n"):
-    enemy = getVal(line[0])
-    me = getVal(line[2])
+    enemy = get_val(line[0])
+    me = get_val(line[2])
 
     points += (me + 1)
-    if isTie(me, enemy): points += 3
-    elif isWin(me, enemy): points += 6
+    if is_tie(me, enemy): points += 3
+    elif is_win(me, enemy): points += 6
 
 print(points)
