@@ -11,14 +11,14 @@ text = """
 """
 
 max = 0
-val = 0
+sum = 0
 
 for line in text.split("\n"):
-    if line.strip() == '':
-        if val > max:
-            max = val
-        val = 0
-    else:
-        val += int(line)
+    if line.strip() != '':
+        sum += int(line)
+    else: 
+        if sum > max: 
+            max = sum
+        sum = 0
 
 print(max)
