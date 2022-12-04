@@ -20,7 +20,7 @@ for line in text.strip().split("\n"):
     if len(groups) != 3:
         continue
     
-    common_char = find_common_char(groups[0], groups[1], groups[2])
+    common_char = find_common_char(*groups)
     if common_char.islower():
         # a-z 1-26
         sum += ord(common_char) - 96
