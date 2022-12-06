@@ -1,8 +1,9 @@
 from pprint import pprint
 import re
 
+
 def get_input():
-    with open("5.txt", "r") as file:
+    with open("input/5.txt", "r") as file:
         return file.read()
 
 

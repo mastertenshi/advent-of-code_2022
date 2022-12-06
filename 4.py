@@ -1,4 +1,3 @@
-
 class Range:
     def __init__(self, start, end) -> None:
         self.start = int(start)
@@ -6,10 +5,10 @@ class Range:
 
     def is_subrange(self, range):
         return (self.start >= range.start) and (self.end <= range.end)
-            
+
     def is_overlapping(self, range):
         return not (
-            (self.end > range.start and self.start > range.end) or 
+            (self.end > range.start and self.start > range.end) or
             (self.end < range.start and self.start < range.end))
 
 
@@ -30,7 +29,7 @@ for line in text.split('\n'):
     second_range = Range(*second.split('-'))
 
     if first_range.is_subrange(second_range) or \
-        second_range.is_subrange(first_range):
+       second_range.is_subrange(first_range):
         subrange_counter += 1
 
     if first_range.is_overlapping(second_range):
