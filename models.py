@@ -41,3 +41,17 @@ class File:
 
     def __repr__(self):
         return self.__str__()
+
+
+class Range:
+    def __init__(self, start, end) -> None:
+        self.start = int(start)
+        self.end = int(end)
+
+    def is_subrange(self, other):
+        return (self.start >= other.start) and (self.end <= other.end)
+
+    def is_overlapping(self, other):
+        return not (
+            (self.start > other.end and self.end > other.start) or
+            (self.start < other.end and self.end < other.start))

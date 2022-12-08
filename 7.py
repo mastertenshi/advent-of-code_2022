@@ -1,4 +1,4 @@
-from models_7 import Folder, File
+from models import Folder, File
 import utils
 
 
