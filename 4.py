@@ -1,25 +1,8 @@
-class Range:
-    def __init__(self, start, end) -> None:
-        self.start = int(start)
-        self.end = int(end)
-
-    def is_subrange(self, range):
-        return (self.start >= range.start) and (self.end <= range.end)
-
-    def is_overlapping(self, range):
-        return not (
-            (self.end > range.start and self.start > range.end) or
-            (self.end < range.start and self.start < range.end))
+from models import Range
+import utils
 
 
-text = """
-2-4,6-8
-2-3,4-5
-5-7,7-9
-2-8,3-7
-6-6,4-6
-2-6,4-8
-""".strip()
+text = utils.get_input("4.txt")
 
 subrange_counter = 0
 overlap_counter = 0
