@@ -1,11 +1,6 @@
 from models import Folder, File
 import utils
 
-text = utils.get_input("7.txt")
-
-root = Folder("/", None)
-curr_folder = root
-
 
 def cd(input_str):
     global curr_folder
@@ -74,6 +69,11 @@ def part_two(folder):
 
 
 if __name__ == '__main__':
+    text = utils.get_input("7.txt")
+
+    root = Folder("/", None)
+    curr_folder = root
+
     read_input()
-    print(f"Sum: {part_one(root)}")
-    print(f"Folder to delete: {sorted(part_two(root))[0]}")
+    print(f"(Files <= 100_000) Sum:\t{part_one(root)}")
+    print(f"For deletion: {sorted(part_two(root))[0]}")

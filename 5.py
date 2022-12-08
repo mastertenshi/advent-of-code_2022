@@ -2,8 +2,6 @@ from pprint import pprint
 import utils
 import re
 
-text = utils.get_input("5.txt")
-
 
 def get_stacks_count():
     for line in text.split('\n'):
@@ -49,10 +47,12 @@ def move_stacks():
     return stacks_1, stacks_2
 
 
-first, second = move_stacks()
+if __name__ == '__main__':
+    text = utils.get_input("5.txt")
+    first, second = move_stacks()
 
-print("First method----")
-pprint(first)
+    print("First method----")
+    pprint(first)
 
-print("\nSecond method----")
-pprint(second)
+    print("\nSecond method----")
+    pprint(second)

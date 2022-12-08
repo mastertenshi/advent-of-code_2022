@@ -1,7 +1,5 @@
 from utils import get_input
 
-text = get_input("2.txt")
-
 
 def get_val(c):
     return (ord(c) - 65) % 23
@@ -35,8 +33,7 @@ def play(should_calculate_move):
     return points
 
 
-part_one = play(False)
-part_two = play(True)
-
-print(part_one)
-print(part_two)
+if __name__ == '__main__':
+    text = get_input("2.txt")
+    print(f"1st Strategy score: {play(should_calculate_move=False)}")
+    print(f"2nd Strategy score: {play(should_calculate_move=True)}")

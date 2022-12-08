@@ -1,17 +1,13 @@
 import utils
 
-text = utils.get_input("8.txt")
-grid = []
-
 
 def init_grid():
-    global grid
-    grid = []
-
+    g = []
     for line in text.split("\n"):
-        grid.append([])
+        g.append([])
         for n in line:
-            grid[-1].append(int(n))
+            g[-1].append(int(n))
+    return g
 
 
 def is_line_visible(tree, line):
@@ -60,7 +56,6 @@ def get_directions(x, y):
 
 
 def run():
-    init_grid()
     height, width = len(grid), len(grid[0])
     visible_trees = height * 2 + width * 2 - 4
 
@@ -74,12 +69,14 @@ def run():
                 visible_trees += 1
 
             scenic_score = calc_scenic_score(tree, up, down, left, right)
-
             if scenic_score > max_score:
                 max_score = scenic_score
 
-    print(f"Visible trees: {visible_trees}")
-    print(f"Max scenic score: {max_score}")
+    print(f"Visible trees:\t\t{visible_trees}")
+    print(f"Max scenic score:\t{max_score}")
 
 
-run()
+if __name__ == '__main__':
+    text = utils.get_input("8.txt")
+    grid = init_grid()
+    run()

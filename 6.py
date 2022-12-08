@@ -1,7 +1,5 @@
 import utils
 
-text = utils.get_input("6.txt")
-
 
 def distinct_location(count):
     for i in range(len(text)-count):
@@ -10,8 +8,11 @@ def distinct_location(count):
     return -1
 
 
-start_of_packet = distinct_location(4)
-message = distinct_location(14)
+if __name__ == '__main__':
+    text = utils.get_input("6.txt")
 
-print(start_of_packet)
-print(message)
+    start_of_packet = distinct_location(4)
+    message = distinct_location(14)
+
+    print(f"Start of packet index:\t{start_of_packet}")
+    print(f"Message index:\t\t\t{message}")

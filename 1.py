@@ -1,7 +1,5 @@
 from utils import get_input
 
-text = get_input("1.txt")
-
 
 def get_max(elf_count):
     sum_list = [0]
@@ -19,8 +17,10 @@ def get_max(elf_count):
     return top_sum
 
 
-max_elf = get_max(1)
-max_top_3 = get_max(3)
+if __name__ == '__main__':
+    text = get_input("1.txt")
+    max_elf = get_max(1)
+    max_top_3 = get_max(3)
 
-print(max_elf)
-print(max_top_3)
+    print(f"Most calories (1) Elf:\t {max_elf}")
+    print(f"Most calories (3) Elves: {max_top_3}")

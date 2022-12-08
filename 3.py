@@ -1,9 +1,6 @@
 import utils
 
 
-text = utils.get_input("3.txt")
-
-
 def find_common_char(string, *strings):
     for c in string:
         is_common = True
@@ -40,4 +37,6 @@ def run():
     print(f"Group sum:\t{group_sum}")
 
 
-run()
+if __name__ == '__main__':
+    text = utils.get_input("3.txt")
+    run()
