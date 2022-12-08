@@ -1,9 +1,6 @@
-def read_file():
-    with open("input/6.txt", "r") as file:
-        return file.read()
+import utils
 
-
-text = read_file()
+text = utils.get_input("6.txt")
 
 
 def distinct_location(count):
