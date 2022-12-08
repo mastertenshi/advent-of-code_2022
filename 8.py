@@ -14,11 +14,25 @@ def init_grid():
             grid[-1].append(int(n))
 
 
-def is_visible(tree, line):
+def is_line_visible(tree, line):
     for other in line:
         if other >= tree:
             return False
     return True
+
+
+def is_visible(tree, *directions):
+    for line in directions:
+        if is_line_visible(tree, line):
+            return True
+    return False
+
+
+def calc_scenic_score(tree, *directions):
+    score = 1
+    for line in directions:
+        score *= line_value(tree, line)
+    return score
 
 
 def line_value(tree, line):
@@ -56,12 +70,10 @@ def run():
             tree = grid[x][y]
             up, down, left, right = get_directions(x, y)
 
-            if is_visible(tree, left) or is_visible(tree, right) or \
-               is_visible(tree, up) or is_visible(tree, down):
+            if is_visible(tree, up, down, left, right):
                 visible_trees += 1
 
-            scenic_score = line_value(tree, left) * line_value(tree, right) * \
-                           line_value(tree, up) * line_value(tree, down)
+            scenic_score = calc_scenic_score(tree, up, down, left, right)
 
             if scenic_score > max_score:
                 max_score = scenic_score
