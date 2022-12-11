@@ -55,3 +55,21 @@ class Range:
         return not (
             (self.start > other.end and self.end > other.start) or
             (self.start < other.end and self.end < other.start))
+
+
+class Node:
+    def __init__(self, x=0, y=0, parent=None, child=None):
+        self.x = x
+        self.y = y
+        self.parent = parent
+        self.child = child
+
+    def move(self, x, y):
+        self.x += x
+        self.y += y
+
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
+    def __repr__(self):
+        return self.__str__()
