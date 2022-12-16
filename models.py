@@ -73,3 +73,19 @@ class Node:
 
     def __repr__(self):
         return self.__str__()
+
+
+class Monkey:
+    def __init__(self, items, op, test, if_true, if_false):
+        self.items = items
+        self.op = op
+        self.test = test
+        self.if_true = if_true
+        self.if_false = if_false
+        self.inspection_count = 0
+
+    def __str__(self):
+        return f"Count: {self.inspection_count} | {self.items}"
+
+    def __repr__(self):
+        return self.__str__()
